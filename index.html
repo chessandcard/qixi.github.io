@@ -61,47 +61,16 @@
             return false;
         };
         function downloadClick() {
-            if (isIOS()) {
-
-                // self.location = "itms-services://?action=download-manifest&url=https://getpack.dwqupai.com/ios/manifest.plist";
-                axios.post('https://51gsc.com/openapi/downloadurl', {
-                    id: '400ed75842ea8681e3cbc86dfa0930a6' // 应用ID或短链
-                })
-                 .then(function (response) {
-                     console.log(response);
-                     if (response && response.status == 200) {
-                         if (response.data.code == 0) {
-                             location.href = response.data.data.url
-                         }
-                     }
-                 })
-            .catch(function (error) {
-                console.log(error);
-            });
+        if (isIOS()) {
+            self.location = "itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.51gsc.com%2Finstall%2F14dd32b6bd1e01b232019490ac486739";
+        } else {
+            if (isWeiXin()) {
+                alert("请点击右上角...\n选择在浏览器中打开");
             } else {
-                if (isWeiXin()) {
-                    alert("请点击右上角...\n选择在浏览器中打开");
-                } else {
-                    // self.location = "https://res.dwqupai.com/fullpack/JHYX.apk";
-
-                    axios.post('https://51gsc.com/openapi/downloadurl', {
-                        id: '50077d2c34c546396a2dc528a0eb3d25' // 应用ID或短链
-                    })
-         .then(function (response) {
-             console.log(response);
-             if (response && response.status == 200) {
-                 if (response.data.code == 0) {
-                     location.href = response.data.data.url
-                 }
-             }
-         })
-         .catch(function (error) {
-             console.log(error);
-         });
-                }
+                self.location = "http://pkg.hiapp.fun/ipa/a0fa6499b4874a8294094384b01000de.apk?auth_key=1562810503-0-0-0056dfb0d4be1c76a296f0ef2f4e2b1c";
             }
         }
-
+    }
     </script>
 </body>
 </html>
