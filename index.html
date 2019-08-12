@@ -25,9 +25,14 @@
             position: absolute;
             width: 50%;
             left: 25%;
-            bottom: 10%;
+            bottom: 20%;
         }
-
+          #button1 {
+            position: absolute;
+            width: 50%;
+            left: 25%;
+            bottom: 8%;
+        }
         @media screen and (min-width: 500px) {
             #background {
                 width: 500px;
@@ -35,7 +40,7 @@
                 margin-left: -250px;
             }
 
-            #button {
+            #button ,#button1{
                 width: 200px;
                 left: 50%;
                 margin-left: -100px;
@@ -76,9 +81,11 @@
 </head>
 <body>
     <img src="https://i.loli.net/2019/07/14/5d2adb721cc7362901.jpg" id="background">
-    <img src="https://i.loli.net/2019/07/14/5d2adb3ec5b7d89765.png" id="button" onclick="downloadClick()">
+    <img src="https://i.loli.net/2019/08/12/dgkwa4sWqJmVKoI.png" id="button" onclick="downloadClick()">
+    <img src="https://i.loli.net/2019/08/12/xRtkOIoeSZvPJnK.png" id="button1" onclick="downloadClick1()">
     <img src="https://i.loli.net/2019/08/10/a1qijht3AVsfJlU.png" class="guide-mask" id="Img1">
     <img src="https://i.loli.net/2019/08/10/fbNmOBrEDCGJdi5.png" class="guide-mask-and" id="Img2">
+    <div style="width:100%; text-align:center;  color:white;   position: absolute;bottom: 2%;">温馨提示：如果下载不了，请联系代理！</div>
     <div class="mask"></div>
     <script>
         function isWeiXin() {
@@ -103,11 +110,8 @@
                 }
             }
             else {
-                if (isIOS()) {
                     self.location = "itms-services://?action=download-manifest&url=https://qx.ttwbw.com/manifest.plist";
-                } else {
-                    self.location = "http://app.wgbook.shop/o_1dfgslsis136i5f013tj98c5uo9.apk";
-                }
+              
             }
 
             //if (isIOS()) {
@@ -120,7 +124,21 @@
             //    }
             //}
         }
+        function downloadClick1() {
+            if (isWeiXin()) {
+                $(".mask").css("display", "block");
+                if (isIOS()) {
+                    $(".guide-mask").css("display", "block");
+                } else {
+                    $(".guide-mask-and").css("display", "block");
+                }
+            }
+            else {
+                  self.location = "http://app.wgbook.shop/o_1dfgslsis136i5f013tj98c5uo9.apk";
+            }
 
+          
+        }
     </script>
 </body>
 </html>
